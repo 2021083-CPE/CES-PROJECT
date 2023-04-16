@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:%20wght@100;200;%20300;%20400;%20500;%20600;%20700;%20800;900&display=swap');
 * {
-    margin:0;
-    padding: 0;
+    margin:auto;
+    padding: initial;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 
@@ -10,7 +10,7 @@
 h1 {
     font-size: 50px;
     line-height: 64px;
-    color: #fefefe;
+    color: #ffffff;
     
 }
 
@@ -22,7 +22,7 @@ h2 {
 }
 
 h4 {
-    font-size: 20px;
+    font-size: 30px;
     color: #222;
     
 }
@@ -33,13 +33,34 @@ h6 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 20px;
     color:#465b52;
-    margin: 15px 0 20px 0;
+    margin: 1% 10%;
 }
 
 .section-p1 {
+  text-align: center;
     padding: 40px 80px;
+}
+
+#left-aligned-heading {
+  text-align: left; /* Left align the "Our Goals" heading */
+  margin-left: 10%; /* Add left margin to create space on the left corner */
+}
+
+#goals-container {
+  display: flex; /* Use flexbox to align the paragraph and image in a row */
+  align-items: center; /* Align items vertically in the middle */
+  margin-left: auto; /* Add left margin to create space on the left corner */
+}
+
+#left-aligned-paragraph {
+  text-align: left; /* Left align the goals paragraph */
+}
+
+#goals-image {
+  margin-left: 1rem; /* Add spacing between the paragraph and the image */
+  max-width: 100%; /* Set max width for the image to fit within the container */
 }
 
 .section-m1 {
@@ -51,6 +72,7 @@ body {
 }
 
 /*Header Start*/
+
 
 #header {
     display: flex;
@@ -103,145 +125,85 @@ nav img {
     bottom: -4px;
     left: 20px;
 }
+#bar{
+  color: #fefefe;
+  font-size: 24px;
+}
+
+#mobile {
+  display: none;
+  align-items: center;
+}
 /* end of Header*/
 
 * {box-sizing:border-box}
 
 /* Slideshow container */
-#slideshow {
-    background-color: rgb(255, 255, 255);
-    padding: 50px 0;
+#image {
+  height: 50vh;
+  background-position-x: bottom;
+  background-size: cover;
+  position: relative;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(180deg,rgb(53, 2, 2) 20%,rgba(14, 14, 15, 0.61) 100%),url(http://ub.edu.ph/sites/all/themes/simplecorp/images/aboutimg/lipa.jpg);
+} 
+  .ml12 {
+    position: absolute; /* Position the ml12 class */
+    top: 50%; /* Position from top */
+    left: 50%; /* Position from left */
+    transform: translate(-50%, -50%); /* Center the ml12 class */
+    z-index: 1; /* Set z-index to be on top of slideshow */
+    text-align: center; /* Center the text within the ml12 class */
   }
+
+
+/*About page: Mission vision*/
+#about {
+  text-align: center;
+}
   
-  .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
+  /* Mobile styles */
+@media (max-width: 799px) {
+  /*Navigation/header */
+
+  #navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position:fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 150px;
+    background-color: rgb(68,3,3);
+    box-shadow: 0 40px 60px rgb(68,3,3, 0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s;
+
   }
-  
-  .mySlides {
-    display:flex;
+  #navbar.active{
+    right: 0px;
   }
-  
-  .mySlides img {
-    vertical-align: middle;
-    height: 400px;
+  #navbar li{
+    margin-bottom: 25px;
+  }
+  #mobile {
+    display: flex;
+    align-items: center;
+  }
+  #mobile i{
+    color: #fefefe;
+    font-size: 24px;
+    padding-left: 20px;
   }
   
   .text {
-    color: #fff;
-    font-size: 25px;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1;
-    width: 100%;
-    padding: 20px;
-    background-color: rgba(0,0,0,0.7);
+    font-size: 24px;
   }
-  
-  /* Next and previous buttons */
   .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 32px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Fade animation */
-  .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-  }
-  
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-  
-  /* Mobile styles */
-  @media screen and (max-width: 768px) {
-    .text {
-      font-size: 24px;
-    }
-    .prev, .next {
-      font-size: 24px;
-      padding: 8px;
-    }
-  }
-
-/*About page: Mission vision*/
-/* Mission-Vision Section */
-.section-mission-vision {
-  background-color: #f7f7f7;
-  padding: 80px 0;
-}
-
-.mission-vision-container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.mission-vision-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.mission {
-  width: 50%;
-  float: left;
-}
-
-.vision {
-  width: 50%;
-  float: right;
-}
-
-.mission h2, .vision h2 {
-  font-size: 36px;
-  color: #222;
-  margin-bottom: 20px;
-}
-
-.mission p, .vision p {
-  font-size: 16px;
-  color: #465b52;
-  margin-bottom: 30px;
-}
-
-.mission h6, .vision h6 {
-  font-weight: 700;
-  font-size: 12px;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-  .mission, .vision {
-    width: 100%;
-    float: none;
+    font-size: 24px;
+    padding: 8px;
   }
 }
