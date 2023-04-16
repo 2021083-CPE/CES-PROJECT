@@ -3,21 +3,21 @@ const bar = document.getElementById('bar');
 const close = document.getElementById('close');
 const nav = document.getElementById('navbar');
 
-if(bar) {
+if(bar && close) {
+  close.style.display = 'none'; // Hide the "close" icon initially
   bar.addEventListener('click', () => {
     nav.classList.add('active');
     bar.style.display = 'none'; // Hide the "bars" icon
     close.style.display = 'block'; // Show the "close" icon
-  })
-}
-
-if(close) {
+  });
+  
   close.addEventListener('click', () => {
     nav.classList.remove('active');
     bar.style.display = 'block'; // Show the "bars" icon
     close.style.display = 'none'; // Hide the "close" icon
-  })
+  });
 }
+
 
 
 // Wrap every letter in a span

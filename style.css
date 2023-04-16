@@ -38,34 +38,6 @@ p {
     margin: 1% 10%;
 }
 
-.section-p1 {
-  text-align: center;
-    padding: 40px 80px;
-}
-
-#left-aligned-heading {
-  text-align: left; /* Left align the "Our Goals" heading */
-  margin-left: 10%; /* Add left margin to create space on the left corner */
-}
-
-#goals-container {
-  display: flex; /* Use flexbox to align the paragraph and image in a row */
-  align-items: center; /* Align items vertically in the middle */
-  margin-left: auto; /* Add left margin to create space on the left corner */
-}
-
-#left-aligned-paragraph {
-  text-align: left; /* Left align the goals paragraph */
-}
-
-#goals-image {
-  margin-left: 1rem; /* Add spacing between the paragraph and the image */
-  max-width: 100%; /* Set max width for the image to fit within the container */
-}
-
-.section-m1 {
-    margin: 40px 0;
-}
 
 body {
     width: 100%;
@@ -75,6 +47,7 @@ body {
 
 
 #header {
+  position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -162,11 +135,56 @@ nav img {
 #about {
   text-align: center;
 }
-  
-  /* Mobile styles */
-@media (max-width: 799px) {
-  /*Navigation/header */
 
+.section-p1 {
+  text-align: center;
+    padding: 40px 80px;
+}
+
+#left-aligned-heading {
+  text-align: left; /* Left align the "Our Goals" heading */
+  margin-left: 10%; /* Add left margin to create space on the left corner */
+}
+
+#goals-container {
+  display: flex; /* Use flexbox to align the paragraph and image in a row */
+  align-items: center; /* Align items vertically in the middle */
+  margin-left: auto; /* Add left margin to create space on the left corner */
+}
+
+#left-aligned-paragraph {
+  text-align: left; /* Left align the goals paragraph */
+}
+
+#goals-image {
+  margin-left: 1rem; /* Add spacing between the paragraph and the image */
+  max-width: 100%; /* Set max width for the image to fit within the container */
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+  /* Mobile styles */
+@media only screen and (max-width: 1320px) {
+    #navbar {
+      padding: 0 50px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+  #navbar {
+    padding: 0 30px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  /*Navigation/header */
+  #navbar {
+    display: block;
+    cursor: pointer;
+    z-index: 100;
+  }
   #navbar{
     display: flex;
     flex-direction: column;
@@ -178,9 +196,9 @@ nav img {
     height: 100vh;
     width: 150px;
     background-color: rgb(68,3,3);
-    box-shadow: 0 40px 60px rgb(68,3,3, 0.1);
-    padding: 80px 0 0 10px;
-    transition: 0.3s;
+    box-shadow: 0 40px 60px rgb(22, 22, 22);
+    padding: 10px 0 0 5px;
+    transition: 0.5s;
 
   }
   #navbar.active{
@@ -189,6 +207,14 @@ nav img {
   #navbar li{
     margin-bottom: 25px;
   }
+  #close {
+    position: absolute;
+    align-items: center;
+    font-size: 24px;
+    color: white; /* Set the color to white */
+    margin: 10px; /* Add margin for spacing */
+  }
+  
   #mobile {
     display: flex;
     align-items: center;
@@ -207,3 +233,5 @@ nav img {
     padding: 8px;
   }
 }
+
+/*Header End*/
