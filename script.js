@@ -92,24 +92,25 @@ anime.timeline({loop: true})
   
   observer.observe(section);
   observer.observe(goals);
-//logo
-  const logoImage = document.getElementById("goals-image");
-  const logoText = document.getElementById("logo-text");
-  
-  let isLogoExpanded = false;
-  
-  logoImage.addEventListener("click", function() {
-    if (!isLogoExpanded) {
-      logoImage.style.transform = "translateX(-200%)";
-      logoText.style.opacity = "1";
-      logoText.style.visibility = "visible";
-    } else {
-      logoImage.style.transform = "translateX(-10%)";
-      logoText.style.opacity = "0";
-      logoText.style.visibility = "hidden";
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("projectsDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
     }
-    
-    isLogoExpanded = !isLogoExpanded;
-  });
-   
+  }
+}
+
+
   

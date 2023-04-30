@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="project.css">
+  <title>My Projects</title>
+  <style>
+    /* Set up the layout of the projects section */
+    #projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    /* Style the project cards */
+    .project-card {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover img {
+      transform: scale(1.2);
+    }
+    
+    .project-card .description {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-card:hover .description {
+      opacity: 1;
+    }
+    
+    /* Style the "view all projects" button */
+    #view-all {
+      display: block;
+      width: 200px;
+      height: 50px;
+      margin: 2rem auto;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    #view-all:hover {
+      background-color: #34495e;
+    }
+  </style>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="CESpic/ublpwhite.png" class="logo" height="56"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a id="active" href="index.html">HOME</a></li>
+                <li><a id="a1" href="#about">ABOUT</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+                <li><a href="contacts.html">CONTACTS</a></li>
+                <i id="close" class="fa-solid fa-xmark"></i>
+
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </section>
+  <div id="projects">
+    <div class="project-card">
+      <img src="project1.jpg" alt="Project 1">
+      <div class="description">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="project2.jpg" alt="Project 2">
+      <div class="description">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="project3.jpg" alt="Project 3">
+      <div class="description">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+      </div>
+    </div>
+  </div>
+  <a id="view-all" href="all-projects.html">View All Projects</a>
+</body>
+</html>
