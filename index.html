@@ -22,7 +22,7 @@
                 <li><a id="active" href="index.html">HOME</a></li>
                 <li><a id="a1" href="#about">ABOUT</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropbtn">PROJECTS</a>
+                  <a href="#projects" class="dropbtn">PROJECTS</a>
                   <div class="dropdown-content">
                       <a href="#">Ongoing Project</a>
                       <a href="#">List of Projects</a>
@@ -69,14 +69,16 @@
         </div>
       </div>
       <!-- Back to top button -->
-    <button
-            type="button"
-            class="btn btn-danger btn-floating btn-lg"
-            id="btn-back-to-top"
-            >
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
+    
+    <section>
+      <div class="circle-container">
+        <div class="circle">
+          <p><b>Project</b></p>
+          <span>&#8595;</span>
+        </div>
+      </div>
+    </section>
+    
     <div id="projects">
       <div class="project">
         <img src="CESpic/four.jpg" alt="Project 1" />
@@ -103,12 +105,25 @@
     </div>
     
     <div id="contacts">
-      <h4>hasash
-      </h4>
+      <div class="container">
+        <div class="contact-box">
+          <div class="left">
+            <img src="CESpic/CESlogo.png" alt="Ces">
+          </div>
+          <div class="right">
+            <h2>Contact Us</h2>
+            <input type="text" class="field" placeholder="Your Name">
+            <input type="text" class="field" placeholder="Your Email">
+            <input type="text" class="field" placeholder="Phone">
+            <textarea placeholder="Message" class="field"></textarea>
+            <button class="btn">Send</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer>
-        <div class="container">
+        <div class="footers">
             <ul>
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Terms of Use</a></li>
@@ -117,7 +132,13 @@
             <p>© University of Batangas-Lipa CES 2023</p>
         </div>
     </footer>
-
+    <button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+      <i class="fas fa-arrow-up"></i>
+    </button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="script.js"></script>
 </body>
