@@ -1,4 +1,9 @@
+const completedProjectsBtn = document.querySelector('.completed-projects-btn');
+const completedProjectsDropdown = document.querySelector('.completed-projects-dropdown');
 
+completedProjectsBtn.addEventListener('click', () => {
+  completedProjectsDropdown.classList.toggle('show');
+});
 
 //mobile navigation
 const bar = document.getElementById('bar');
@@ -50,6 +55,7 @@ function backToTop() {
 document.body.scrollTop = 0;
 document.documentElement.scrollTop = 0;
 }
+// end of scroll to top
 
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml12');
@@ -92,25 +98,22 @@ anime.timeline({loop: true})
   
   observer.observe(section);
   observer.observe(goals);
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("projectsDropdown").classList.toggle("show");
-}
 
+// Close the dropdown if
 // Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
+window.addEventListener('click', (event) => {
+  if (!event.target.matches('.completed-projects-btn')) {
+  completedProjectsDropdown.style.display = 'none';
   }
-}
-
-
+  });
   
+  // When the user clicks on the button, toggle between hiding and showing the dropdown content
+  completedProjectsBtn.addEventListener('click', (event) => {
+  event.stopPropagation();
+  completedProjectsDropdown.style.display = completedProjectsDropdown.style.display === 'block' ? 'none' : 'block';
+  });
+  
+  // Close the dropdown when the user scrolls the page
+  window.addEventListener('scroll', () => {
+  completedProjectsDropdown.style.display = 'none';
+  });
