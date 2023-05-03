@@ -166,7 +166,7 @@ nav img {
   display: none;
   position: absolute;
   z-index: 1;
-  background-color: rgba(49, 48, 48, 0.388);
+  background-color: rgb(53, 2, 2, 100%);
   min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   border-radius: 4px;
@@ -308,13 +308,22 @@ section {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-top: 2px dashed #ffcc00;
+        border-right: 2px dashed #ffcc00;
+        border-left: 2px dashed #000000;
+        border-bottom: 2px dashed #000000;
+        border-radius: 50%;
+        padding: 10px;
+        animation: spin 10s infinite linear;  
 }
+
 
 .circle {
   width: 150px; /* set the width and height of the circle */
   height: 150px;
   border-radius: 50%; /* create a circle shape */
-  background-image: linear-gradient(180deg, #f2eeee 50%, rgb(97, 13, 4) 50%); /* set the background color */
+  background-color: rgb(249,174,59);
+  border: 10px rgba(30,85,250,0.47);
   display: flex; /* use flexbox to center the text */
   align-items: center;
   justify-content: center;
@@ -328,7 +337,8 @@ section {
   display: inline-block;
   font-size: 2rem;
   line-height: 1;
-  background-image: linear-gradient(180deg, rgb(97, 13, 4) 50%, #f2eeee 50%);
+  background-color: #f2eeee;
+  border: 2rem rgba(30,85,250,0.47);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -354,9 +364,14 @@ section {
   align-items: center;
   flex-wrap: wrap;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 9% auto;
   
   
+}
+
+.projectHeading{
+  background: url(https://img.freepik.com/free-vector/blur-gradient-pink-purple-abstract-background_53876-174851.jpg?w=1380&t=st=1682911669~exp=1682912269~hmac=dbc137fd2d8b2a19de89c0d6186a8ab1479fcbe63ccab8b24bb678c82cbb93fc);
+  padding: 20%;
 }
 
 .project {
@@ -589,18 +604,22 @@ footer a {
     top: 0;
     right: -300px;
     height: 100vh;
-    width: 150px;
+    width: 230px;
     background-color: rgb(68,3,3);
     box-shadow: 0 40px 60px rgb(22, 22, 22);
-    padding: 10px 0 0 5px;
+    padding: 10px 0 20px 5px;
     transition: 0.5s;
 
+  }
+  .dropdown-content{
+    position: inherit;
+    
   }
   #navbar.active{
     right: 0px;
   }
   #navbar li{
-    margin: 20%;
+    margin: 43px 3px 7px 12px;
   }
   #close {
     position: absolute;
@@ -609,6 +628,9 @@ footer a {
     color: white; /* Set the color to white */
     margin: 10px; /* Add margin for spacing */
   }
+  
+  
+
   /*About us*/
   #about {
     max-width: 100%;
@@ -648,4 +670,5 @@ footer a {
     padding-bottom: 5%;
     margin-bottom: 40%;
 	}
-}   
+}  
+ 
