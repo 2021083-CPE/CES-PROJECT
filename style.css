@@ -398,14 +398,14 @@ section {
   text-align: center;
 }
 .project {
-    position: relative;
-    width: 300px;
-    height: 350px;
-    margin: 50px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    display: inline-block;
+  position: relative;
+  width: 284px;
+  height: 322px;
+  margin: 30px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  display: inline-block;
 }
 
 .project-container {
@@ -685,11 +685,37 @@ footer a {
     font-size: 24px;
     padding: 8px;
   }
+  /*Project image*/
+  .project {
+    width: 221px;
+    height: 265px;
+    margin: 20px;
+  }
+  
+  /*Contact*/
+  .contact-box{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		max-height: 100px;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-bottom: 40%;
+	}
+
 }
+  
 
 /*Header End*/
 /*Contact Us*/
-@media screen and (max-width: 900px){
+@media screen and (max-width: 500px){
+  /*Project image*/
+  .project {
+    width: 134px;
+    height: 205px;
+    margin: 10px;
+  }
+  /*Contact*/
 	.contact-box{
 		grid-template-columns: 1fr;
 	}
@@ -699,5 +725,9 @@ footer a {
     padding-bottom: 5%;
     margin-bottom: 40%;
 	}
-}  
- 
+  .right{
+    margin-top: 30%;
+  }
+
+
+} 
