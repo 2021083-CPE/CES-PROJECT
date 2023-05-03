@@ -391,6 +391,12 @@ section {
   align-items: center;
   text-align: center;
 }
+#projects p{
+  color: #eeebf8;
+  font-size: 15px;
+  align-items: center;
+  text-align: center;
+}
 .project {
     position: relative;
     width: 300px;
