@@ -357,33 +357,61 @@ section {
 
 /*PROJECTS*/
 
+#Project-section {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.room {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  filter: blur(2px);
+  object-fit: cover;
+}
+
 #projects {
+  position: relative;
   padding: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   max-width: 1000px;
-  margin: 9% auto;
-  
-  
+  z-index: 1;
+  padding-top: 15%;
 }
 
-.projectHeading{
-  background: url(https://img.freepik.com/free-vector/blur-gradient-pink-purple-abstract-background_53876-174851.jpg?w=1380&t=st=1682911669~exp=1682912269~hmac=dbc137fd2d8b2a19de89c0d6186a8ab1479fcbe63ccab8b24bb678c82cbb93fc);
-  padding: 20%;
+#projects h3{
+  color: #eeebf8;
+  font-size: 50px;
+  align-items: center;
+  text-align: center;
 }
-
+#projects p{
+  color: #eeebf8;
+  font-size: 15px;
+  align-items: center;
+  text-align: center;
+}
 .project {
-  position: relative;
-  width: 700px;
-  height: 300px;
-  margin: 50px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 50px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    display: inline-block;
 }
 
+.project-container {
+  display: flex;
+  justify-content: center;
+}
 .project img {
   width: 100%;
   height: 100%;
@@ -419,21 +447,22 @@ section {
 }
 
 .view-all-btn {
-      display: block;
-      width: 200px;
-      height: 50px;
-      margin: 3rem auto;
-      background-color: rgb(97, 13, 4);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      line-height: 50px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 3rem auto;
+  background-color: rgb(97, 13, 4);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
+
 /*CONTACTS*/
 .container{
 	position: relative;
