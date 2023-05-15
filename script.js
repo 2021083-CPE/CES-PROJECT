@@ -117,3 +117,10 @@ window.addEventListener('click', (event) => {
   window.addEventListener('scroll', () => {
   completedProjectsDropdown.style.display = 'none';
   });
+
+
+
+document.getElementById("joinBtn").addEventListener("click", function() {
+document.getElementById("formContainer").style.display = "block";
+});
+
