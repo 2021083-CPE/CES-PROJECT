@@ -1,0 +1,238 @@
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="x-icon" href="CESpic/CESlogo.png" sizes= 100px>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="index.html"><img src="CESpic/ublpwhite.png" class="logo" height="56"></a>
+    
+        <div>
+            <ul id="navbar">
+                <li><a id="active" href="index.html">HOME</a></li>
+                <li><a id="a1" href="index.html#about">ABOUT</a></li>
+                <li class="dropdown">
+                    <a href="index.html#projects" class="dropbtn">PROJECTS</a>
+                    <div class="dropdown-content">
+                        
+                        <div class="dropdown">
+                            <a href="projects.html" class="completed-projects-btn"></a>
+                            <div class="dropdown-content completed-projects-dropdown">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a id="active" href="index.html#contacts">CONTACTS</a></li>
+                <li><a id="active" href="login.html">Log in</a></li>
+                <i id="close" class="fa-solid fa-xmark"></i>
+            </ul>
+        </div>
+    
+        <div id="mobile">
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </section>
+    
+    <div id="login-modal" class="modal">
+      <div class="modal-content">
+          <h2>Login</h2>
+          
+          <div id="coordinator-login-form" class="login-form">
+              <form method="post" action="login.php">
+                  <label for="department">Choose Your Role</label><br><br>
+                  <select id="department" name="department">
+                      <option value="admin">ADMIN</option>
+                      <option value="CBAA">CBAA</option>
+                      <option value="CCJE">CCJE</option>
+                      <option value="CENAR">CENAR</option>
+                      <option value="CEAS">CEAS</option>
+                      <option value="CENTHRE">CENTHRE</option>
+                      <option value="CITEC">CITEC</option>
+                  </select><br><br>
+                  <input type="text" name="username" id="username" placeholder="Username"><br><br>
+                  <input type="password" name="password" id="password" placeholder="Password"><br>
+                  <input type="submit" value="Login">
+              </form>
+          </div>
+      </div>
+  
+
+
+  <style>
+    .modal {
+    max-width: 500px;
+    width: 100%;
+    height: 55%;
+    background-color: white;
+    padding: 28px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 90px;
+
+}
+.modal-content {
+  margin-top: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.radio-group {
+  margin-bottom: 10px;
+}
+.select {
+    margin-bottom: 10px;
+}
+.login-form {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+select,
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: #ba7815;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #e89518;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#coordinator-login-form {
+  display: none;
+}
+
+.modal-close:hover {
+  color: red;
+}
+
+    h2:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: rgb(249 174 59 / 0%);
+}
+
+@media only screen and (max-width: 900px) {
+  /*Navigation/header */
+  #navbar {
+    display: block;
+    cursor: pointer;
+    z-index: 100;
+  }
+  #navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position:fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 230px;
+    background-color: rgb(68,3,3);
+    box-shadow: 0 40px 60px rgb(22, 22, 22);
+    padding: 10px 0 20px 5px;
+    transition: 0.5s;
+
+  }
+  
+  #navbar.active{
+    right: 0px;
+  }
+  #navbar li{
+    margin: 43px 3px 7px 12px;
+  }
+  #close {
+    position: absolute;
+    align-items: center;
+    font-size: 24px;
+    color: white; /* Set the color to white */
+    margin: 10px; /* Add margin for spacing */
+  }
+}
+  
+
+  /*About us*/
+  #about {
+    max-width: 100%;
+    padding: 10%
+  }
+
+  </style>
+    <script>
+      // JavaScript code
+      document.addEventListener('DOMContentLoaded', function () {
+        // Show the coordinator login form by default
+        var coordinatorForm = document.getElementById('coordinator-login-form');
+        coordinatorForm.style.display = 'block';
+
+        // Form submission handler
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Retrieve form values
+          var department = document.getElementById('department').value;
+          var username = document.getElementById('username').value;
+          var password = document.getElementById('password').value;
+
+          // Perform login logic here
+          // ...
+
+          // Reset form
+          document.getElementById('login-form').reset();
+        });
+      });
+    </script>
+
+</body>
+</html>
+
+
+
+
