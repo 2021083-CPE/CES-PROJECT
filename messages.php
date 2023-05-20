@@ -61,10 +61,10 @@
 
     <div>
         <ul id="navbar">
-            <li><a id="active" href="admin.html">HOME</a></li>
-            <li><a id="a1" href="admin.html#about">ABOUT</a></li>
+            <li><a id="active" href="admin/admin.html">HOME</a></li>
+            <li><a id="a1" href="admin/admin.html#about">ABOUT</a></li>
             <li class="dropdown">
-                <a href="admin.html#projects" class="dropbtn">PROJECTS</a>
+                <a href="admin/admin.html#projects" class="dropbtn">PROJECTS</a>
                 <div class="dropdown-content">
                     <div class="dropdown">
                         <a href="projects.html" class="completed-projects-btn"></a>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </li>
-            <li><a id="active" href="admin.html#contacts">CONTACTS</a></li>
+            <li><a id="active" href="admin/admin.html#contacts">CONTACTS</a></li>
             <li><a id="active" href="messages.php">Message</a></li>
             <li><a id="active" href="#notif">Volunteers</a></li>
             <li><a id="active" href="login.html">Log out</a></li>

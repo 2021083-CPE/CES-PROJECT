@@ -315,7 +315,7 @@ nav img {
   position: relative;
   width: 254px;
   height: 210px;
-  margin: 25px;
+  margin: 13px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -326,11 +326,7 @@ nav img {
   display: flex;
   justify-content: center;
   margin-bottom: 165px;
-  align-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
 }
-
 .project img {
   width: 100%;
   height: 100%;
@@ -423,7 +419,6 @@ h2:after{
     height: 4px;
     width: 50px;
     border-radius: 2px;
-    background-color: rgb(249,174,59);
 }
 
 .field{
@@ -590,11 +585,6 @@ textarea{
 }
 
 @media only screen and (max-width: 900px) {
-  .project-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
   /*Navigation/header */
   #navbar {
     display: block;
@@ -688,12 +678,11 @@ textarea{
     height: 205px;
     margin: 10px;
   }
+
   .project-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-}
-
+  }
   /*Circle*/
 
   .circle-container{
