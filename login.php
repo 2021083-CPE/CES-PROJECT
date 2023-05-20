@@ -41,30 +41,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($username === $storedUsername && $password === $storedPassword) {
             // Check if the user is in the correct department
             if ($department === $storedDepartment) {
+                // Set the session variables
                 $_SESSION["loggedin"] = true;
+                $_SESSION["department"] = $department;
 
                 // Redirect the user to their respective department page
                 switch ($department) {
                     case "admin":
-                        header("Location: admin.html");
+                        header("Location: admin/admin.html");
                         break;
                     case "CBAA":
-                        header("Location: CBAA/login.html");
+                        header("Location: CBAA/cbaamodify.php");
                         break;
                     case "CCJE":
-                        header("Location: CCJE.html");
+                        header("Location: CCJE/ccjemodify.php");
                         break;
                     case "CENAR":
-                        header("Location: CENAR.html");
+                        header("Location: CENAR/cenarmodify.php");
                         break;
                     case "CEAS":
-                        header("Location: CEAS.html");
+                        header("Location: CEAS/ceasmodify.php");
                         break;
                     case "CENTHRE":
-                        header("Location: CENTHRE.html");
+                        header("Location: CENTHRE/centhremodify.php");
                         break;
                     case "CITEC":
-                        header("Location: CITEC.html");
+                        header("Location: CITEC/citecmodify.php");
                         break;
                     // Add more cases for other departments
 
@@ -87,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 
-    header("location: login.html");
+    header("Location: login.html");
     exit;
 }
 ?>
