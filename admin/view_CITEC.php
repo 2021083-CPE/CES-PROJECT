@@ -36,7 +36,6 @@
             </li>
             <li><a id="active" href="admin.html#contacts">CONTACTS</a></li>
             <li><a id="active" href="../messages.php">Message</a></li>
-            <li><a id="active" href="admin.html#notif">Volunteers</a></li>
             <li><a id="active" href="../login.html">Log out</a></li>
             
             <i id="close" class="fa-solid fa-xmark"></i>
@@ -76,7 +75,7 @@
                         echo "<h3>$title</h3>";
                         echo "<p>$description</p>";
                         echo "<p>Status: $status</p>";
-                        echo "<p>PDF File: <a href='data:application/pdf;base64," . base64_encode($backData) . "' target='_blank'>View</a></p>";
+                        echo "<a href='../CITEC/uploads/" . $row['backname'] . "' target='_blank'>View</a>";
                         echo "<div class='project-image'><img src='data:image/jpeg;base64," . base64_encode($pictureData) . "' alt='Project Picture'></div>";
                         echo "</div>";
                     }

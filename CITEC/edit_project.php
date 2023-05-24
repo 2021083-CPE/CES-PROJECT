@@ -168,9 +168,15 @@
         }
 
         .buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
         .edit-button,
@@ -200,16 +206,12 @@
         h3 .input{
             cursor: none;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .submit {
+            font-size:90px;
         }
         
     </style>
+
 </head>
 
 <body>

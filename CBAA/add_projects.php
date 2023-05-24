@@ -29,11 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $picture = file_get_contents($_FILES['picture']['tmp_name']);
     $picturename = $_FILES['picture']['name'];
 
-    // File type validation (example: only allow PDF files for 'back' file)
-    $allowedBackExtensions = ['pdf'];
+    // File type validation (allow PDF, DOC, and TXT files for 'back' file)
+    $allowedBackExtensions = ['pdf', 'doc', 'txt'];
     $backFileExtension = pathinfo($backname, PATHINFO_EXTENSION);
     if (!in_array($backFileExtension, $allowedBackExtensions)) {
-        echo "Invalid file type for 'back' file. Only PDF files are allowed.";
+        echo "Invalid file type for 'back' file. Only PDF, DOC, and TXT files are allowed.";
         exit;
     }
 

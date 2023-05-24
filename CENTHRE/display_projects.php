@@ -23,8 +23,9 @@ if ($result) {
             echo "<p>$description</p>";
             echo "<p>Status: $status</p>";
             echo "<div class='pdf-container'>";
-            echo "<a href='view_pdf.php?file=" . urlencode($backData) . "' target='_blank'>View PDF</a>";
+            echo "<a href='view_pdf.php?title=$title'>View PDF</a>";
 
+            echo "<hr>";
             echo "</div>";
             echo "<div class='project-image'><img src='data:image/jpeg;base64," . base64_encode($pictureData) . "' alt='Project Picture'></div>";
             echo "</div>";

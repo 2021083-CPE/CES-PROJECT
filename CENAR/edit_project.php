@@ -168,9 +168,16 @@
         }
 
         .buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
         .edit-button,
@@ -200,13 +207,8 @@
         h3 .input{
             cursor: none;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .submit {
+            font-size:90px;
         }
         
     </style>
@@ -234,7 +236,7 @@
                     </div>
                 </li>
                 <li><a id="active" href="index.html#contacts">CONTACTS</a></li>
-            <li><a id="active" href="#notif">Volunteers</a></li>
+                <li><a id="active" href="#notif">Volunteers</a></li>
                 <li><a id="active" href="logout.php">Log out</a></li>
                 <i id="close" class="fa-solid fa-xmark"></i>
             </ul>
@@ -280,7 +282,7 @@ if (isset($_GET['title'])) {
             echo "    <option value='completed'". ($status === 'completed' ? ' selected' : '') .">Completed</option>";
             echo "</select><br>";
             // ... add other fields as needed
-            echo "<button><input type='submit' value='Save'></button>";
+            echo "<button class= 'buttons'><input type='submit' value='Save'></button>";
             echo "</form>";
             
         }

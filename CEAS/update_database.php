@@ -11,13 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ... get other form fields as needed
 
     // Update the project details in the database
-    $query = "UPDATE ceas_projects SET description = '$description', status = '$status' WHERE title = '$title'";
+    $query = "UPDATE ccje_projects SET description = '$description', status = '$status' WHERE title = '$title'";
     $result = mysqli_query($connection, $query);
 
     if ($result) {
         // Update successful
         echo "Project updated successfully.";
-        header("Location: ceasmodify.php");
+        header("Location: ccjemodify.php");
     } else {
         // Update failed
         echo "Error updating project: " . mysqli_error($connection);

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,9 +73,17 @@
                         echo "<h3>$title</h3>";
                         echo "<p>$description</p>";
                         echo "<p>Status: $status</p>";
-                        echo "<p>PDF File: <a href='data:application/pdf;base64," . base64_encode($backData) . "' target='_blank'>View</a></p>";
+                        echo "<a href='../CENAR/uploads/" . $row['backname'] . "' target='_blank'>View</a>";
+                        echo "<div class='buttons'>";
+                        if ($status === 'ongoing') {
+                            echo "<button class='join-button' onclick=\"toggleJoinForm('$title')\" style='z-index: 2'>Join Now</button>";
+
+                        }
+    
+                        echo "</div>";
                         echo "<div class='project-image'><img src='data:image/jpeg;base64," . base64_encode($pictureData) . "' alt='Project Picture'></div>";
                         echo "</div>";
+                        
                     }
                 } else {
                     echo "<p>No projects found.</p>";
@@ -85,6 +94,11 @@
             } else {
                 echo "<p>Error: " . mysqli_error($connection) . "</p>";
             }
+            if (isset($_GET['success'])) {
+                echo "<p>Successfully joined the project.</p>";
+              } elseif (isset($_GET['error'])) {
+                echo "<p>Error: There was an error joining the project.</p>";
+              }
 
             // Close the database connection
             mysqli_close($connection);
@@ -92,6 +106,38 @@
         </div>
     </section>
 
+    <div id="join-form-container" style="display: none;">
+    <!-- Join form -->
+    <form id="join-form" action="../CENAR/volunteers.php" method="POST">
+
+                    <h2>Join Project</h2>
+                    <div class="form-group">
+                        <label for="project-title">Project Title:</label>
+                        <input type="text" id="project-title" name="project-title" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department:</label>
+                        <select id="department" name="department" required>
+                            <option value="CBAA">CBAA</option>
+                            <option value="CCJE">CCJE</option>
+                            <option value="CEAS">CEAS</option>
+                            <option value="CENAR">CENAR</option>
+                            <option value="CENTHRE">CENTHRE</option>
+                            <option value="CITEC">CITEC</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Join</button>
+    </form>
+    </div>
     <!-- Add your footer here -->
     <div class="footer-clean">
       <footer>
@@ -107,63 +153,218 @@
   </div>
 
     <style>
+        /* Add Project Form */
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #add-project {
+            padding: 20px;
+        }
+
+        #add-project h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .container5 h3 {
+            text-align: center;
+        }
+
+        #cbaa {
+            position: relative;
+            padding: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            z-index: 1;
+            padding-top: 4%;
+            flex-direction: column;
+        }
+
+        #cbaa h6 {
+            font-size: 50px;
+            color: rgb(249, 174, 59);
+            text-align: center;
+        }
+
+        /* CSS */
+        #add-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            cursor: pointer;
+            font-family: arial, sans-serif;
+            font-size: 14px;
+            height: 36px;
+            line-height: 27px;
+            min-width: 54px;
+            padding: 0 16px;
+            text-align: center;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: pre;
+        }
+
+        #add-btn:hover {
+            border-color: #dadce0;
+            box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+            color: #202124;
+        }
+
+        #add-btn:focus {
+            border-color: #4285f4;
+            outline: none;
+        }
+        
         #CBAAprojects {
-    background-color: #f2f2f2;
-}
+            background-color: #f2f2f2;
+        }
 
-.CBAAcontainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px;
-}
+        .CBAAcontainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
 
-.project {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding: 8px;
-    margin-bottom: 20px;
-    color: #fff;
-    position: relative;
-    height: 400px;
-    width: 450px;
-}
-.project a {
-    position: relative;
-    z-index: 2;
-}
+        .project {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding: 8px;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+            height: 400px;
+            width: 450px;
+        }
+        .project a {
+            position: relative;
+            z-index: 2;
+        }
 
-p {
-    font-size: 16px;
-    color: #000;
-}
+        p {
+            font-size: 16px;
+            color: #000;
+        }
 
-.title {
-    font-weight: bold;
-    text-align: center;
-}
-h2:after{
-    background-color: rgb(249 174 59 / 0%);
-}
+        .title {
+            font-weight: bold;
+            text-align: center;
+        }
+        h2:after{
+            background-color: rgb(249 174 59 / 0%);
+        }
 
-h2 {
-    text-align: center;
-    color: rgb(249 174 59);
-}
-.project h3 {
-    font-size: 23px;
-    text-align: center;
-    color: rgb(249 174 59);
-    margin: 15px;
-}
-.project img {
-    padding-top: 128px;
-}
+        h2 {
+            text-align: center;
+            color: rgb(249 174 59);
+        }
+        .project h3 {
+            font-size: 23px;
+            text-align: center;
+            color: rgb(249 174 59);
+            margin: 15px;
+        }
+        .project img {
+            padding-top: 40px;
+            z-index: -1;
+        }
+
+        .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        }
+
+        .edit-button,
+        .delete-button,
+        .join-button {
+            padding: 8px 16px;
+            margin-right: 340px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .edit-button:hover,
+        .delete-button:hover,
+        .join-button:hover {
+            background-color: #45a049;
+        }
+        #join-form {
+            margin:90px;
+
+        }
 
     </style>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../script.js"></script>
+    <script>
+function toggleJoinForm(title, department) {
+  var joinFormContainer = document.getElementById("join-form-container");
+
+  // Toggle the display of the join form container
+  if (joinFormContainer.style.display === "none" || joinFormContainer.style.display === "") {
+    joinFormContainer.style.display = "block";
+  } else {
+    joinFormContainer.style.display = "none";
+  }
+
+  // Set the project title and department in the form
+  document.getElementById("project-title").value = title;
+  document.getElementById("department").value = department;
+}
+
+    </script>
 </body>
 
 </html>

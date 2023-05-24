@@ -14,7 +14,7 @@ if (isset($_GET['title']) && !empty($_GET['title'])) {
         // Delete operation successful
         echo "Project deleted successfully.";
         
-        // Redirect back to ccjemodify.php
+        // Redirect back to cbaamodify.php
         header("Location: ccjemodify.php");
         exit();
     } else {
