@@ -72,7 +72,7 @@
                         echo "<div class='project'>";
                         echo "<h3>$title</h3>";
                         echo "<p>$description</p>";
-                        echo "<p>Status: $status</p>";
+                        echo "<p><strong>Status: $status</strong></p>";
                         echo "<a href='../CCJE/uploads/" . $row['backname'] . "' target='_blank'>View</a>";
                         echo "<div class='buttons'>";
                         if ($status === 'ongoing') {

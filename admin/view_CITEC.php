@@ -35,7 +35,7 @@
                 </div>
             </li>
             <li><a id="active" href="admin.html#contacts">CONTACTS</a></li>
-            <li><a id="active" href="../messages.php">Message</a></li>
+            <li><a id="active" href="messages.php">Message</a></li>
             <li><a id="active" href="../login.html">Log out</a></li>
             
             <i id="close" class="fa-solid fa-xmark"></i>
@@ -74,7 +74,7 @@
                         echo "<div class='project'>";
                         echo "<h3>$title</h3>";
                         echo "<p>$description</p>";
-                        echo "<p>Status: $status</p>";
+                        echo "<p><strong>Status: $status</strong></p>";
                         echo "<a href='../CITEC/uploads/" . $row['backname'] . "' target='_blank'>View</a>";
                         echo "<div class='project-image'><img src='data:image/jpeg;base64," . base64_encode($pictureData) . "' alt='Project Picture'></div>";
                         echo "</div>";
@@ -160,7 +160,7 @@ h2 {
     margin: 15px;
 }
 .project img {
-    padding-top: 128px;
+    padding-top: 50px;
 }
 
     </style>

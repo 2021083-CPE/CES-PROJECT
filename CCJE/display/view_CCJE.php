@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>view | CCJE Projects</title>
+    <title>CCJE Account |view CCJE</title>
     <link rel="stylesheet" href="project.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="x-icon" href="https://i.imgur.com/JhcoDAt.png" sizes= 100px>
@@ -15,7 +15,7 @@
 
 <body>
 <section id="header">
-    <a href="../index.html"><img src="../../CESpic/ublpwhite.png" class="logo" height="56"></a>
+    <a href="../index.html"><img src="../CESpic/ublpwhite.png" class="logo" height="56"></a>
 
     <div>
         <ul id="navbar">
@@ -34,8 +34,9 @@
                 </div>
             </li>
             <li><a id="active" href="../index.html#contacts">CONTACTS</a></li>
+            
             <li><a id="active" href="#notif">Volunteers</a></li>
-            <li><a id="active" href="../../login.html">Log out</a></li>
+            <li><a id="active" href="../login.html">Log in</a></li>
             <i id="close" class="fa-solid fa-xmark"></i>
         </ul>
     </div>
@@ -51,7 +52,7 @@
 
             <?php
             // Include the database connection file
-            include '../../CCJE/database_connection.php';
+            include '../CCJE/database_connection.php';
 
             // Fetch the projects from the database
             $query = "SELECT * FROM ccje_projects";
@@ -73,17 +74,9 @@
                         echo "<h3>$title</h3>";
                         echo "<p>$description</p>";
                         echo "<p>Status: $status</p>";
-                        echo "<a href='../../CCJE/uploads/" . $row['backname'] . "' target='_blank'>View</a>";
-                        echo "<div class='buttons'>";
-                        if ($status === 'ongoing') {
-                            echo "<button class='join-button' onclick=\"toggleJoinForm('$title')\" style='z-index: 2'>Join Now</button>";
-
-                        }
-    
-                        echo "</div>";
+                        echo "<p>PDF File: <a href='data:application/pdf;base64," . base64_encode($backData) . "' target='_blank'>View</a></p>";
                         echo "<div class='project-image'><img src='data:image/jpeg;base64," . base64_encode($pictureData) . "' alt='Project Picture'></div>";
                         echo "</div>";
-                        
                     }
                 } else {
                     echo "<p>No projects found.</p>";
@@ -94,42 +87,12 @@
             } else {
                 echo "<p>Error: " . mysqli_error($connection) . "</p>";
             }
-            if (isset($_GET['success'])) {
-                echo "<p>Successfully joined the project.</p>";
-              } elseif (isset($_GET['error'])) {
-                echo "<p>Error: There was an error joining the project.</p>";
-              }
 
             // Close the database connection
             mysqli_close($connection);
             ?>
-            
         </div>
     </section>
-    
-    <div id="join-form-container" style="display: none;">
-    <!-- Join form -->
-    <form id="join-form" action="join_project.php" method="POST">
-                    <h2>Join Project</h2>
-                    <div class="form-group">
-                        <label for="project-title">Project Title:</label>
-                        <input type="text" id="project-title" name="project-title" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="full-name">Full Name:</label>
-                        <input type="text" id="full-name" name="full-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="department">Department:</label>
-                        <input type="text" id="department" name="department" required>
-                    </div>
-                    <button type="submit">Join</button>
-    </form>
-    </div>
 
     <!-- Add your footer here -->
     <div class="footer-clean">
@@ -330,17 +293,9 @@
         }
 
     </style>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../script.js"></script>
-    <script>
-            function openJoinForm(title) {
-        // Display the join form container
-        document.getElementById("join-form-container").style.display = "block";
-
-        // Set the project title in the form
-        document.getElementById("project-title").value = title;
-    }
-    </script>
 </body>
 
 </html>

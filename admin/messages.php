@@ -54,14 +54,6 @@
             cursor: pointer;
             
         }
-        .messages-container p {
-            text-align: center;
-            margin: 51px;
-            font-size: 21px;
-        }
-        .messages-container {
-            height: 90vh;
-        }
 
     </style>
     <section id="header">
@@ -92,7 +84,7 @@
     </div>
 </section>
 
-<div class="messages-container">
+<div class="messages-container" style = "height: 90vh;">
     <?php
     // Database configuration
     $servername = "localhost";
