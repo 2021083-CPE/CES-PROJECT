@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBAA Projects</title>
+    <title>CEAS Projects</title>
     <link rel="stylesheet" href="project.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="x-icon" href="https://i.imgur.com/JhcoDAt.png" sizes="100px">
@@ -168,9 +168,15 @@
         }
 
         .buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
         .edit-button,
@@ -200,13 +206,8 @@
         h3 .input{
             cursor: none;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .submit {
+            font-size:90px;
         }
         
     </style>
@@ -280,7 +281,7 @@ if (isset($_GET['title'])) {
             echo "    <option value='completed'". ($status === 'completed' ? ' selected' : '') .">Completed</option>";
             echo "</select><br>";
             // ... add other fields as needed
-            echo "<button><input type='submit' value='Save'></button>";
+            echo "<button class= 'buttons'><input type='submit' value='Save' style='background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 4px;'></button>";
             echo "</form>";
             
         }

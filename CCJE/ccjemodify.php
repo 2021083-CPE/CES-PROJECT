@@ -110,7 +110,7 @@
             border-color: #4285f4;
             outline: none;
         }
-        <style>
+        
         #CBAAprojects {
             background-color: #f2f2f2;
         }
@@ -138,6 +138,7 @@
         }
 
         p {
+            z-index: 1;
             font-size: 16px;
             color: #000;
         }
@@ -161,32 +162,41 @@
             margin: 15px;
         }
         .project img {
-            padding-top: 128px;
+            padding-top: 20px;
+            z-index: -2;
         }
-
+        .project p {
+            z-index: 2;
+        }
         .buttons {
         display: flex;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 30px;
         }
 
         .edit-button,
-        .delete-button {
+        .delete-button,
+        .join-button {
             padding: 8px 16px;
-            margin-right: 147px;
+            margin-right: 80px;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             text-decoration: none;
+            font-size: 15px;
         }
 
         .edit-button:hover,
-        .delete-button:hover {
+        .delete-button:hover,
+        .join-button:hover {
             background-color: #45a049;
         }
+        #join-form {
+            margin:90px;
 
+        }
 
     </style>
 </head>
@@ -213,7 +223,7 @@
                     </div>
                 </li>
                 <li><a id="active" href="index.html#contacts">CONTACTS</a></li>
-                <li><a id="active" href="#notif">Volunteers</a></li>
+                <li><a id="active" href="notif.php#notif">Volunteers</a></li>
                 <li><a id="active" href="logout.php">Log out</a></li>
                 <i id="close" class="fa-solid fa-xmark"></i>
             </ul>
@@ -236,7 +246,7 @@
         <!-- Add Project form -->
         <section id="add-project">
             <div class="container5">
-                <h3>cCJE PROJECTS</h3>
+                <h3>CCJE PROJECTS</h3>
                 <h2>Add Project</h2>
                 <form id="add-form" action="add_projects.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
@@ -269,6 +279,10 @@
 
     </section>
 
+    
+
+
+
 <!-- CBAAprojects section -->
 <section id="CBAAprojects">
     <div class="CBAAcontainer">
@@ -285,26 +299,32 @@
             if (mysqli_num_rows($result) > 0) {
                 // Loop through the projects and display them
                 while ($row = mysqli_fetch_assoc($result)) {
-
+                    // Project information
                     $title = $row["title"];
                     $description = $row["description"];
                     $status = $row["status"];
                     $backData = $row["back"];
                     $pictureData = $row["picture"];
-
-                    // Display the project information and edit/delete buttons
+        
+                    // Display project information and buttons
                     echo "<div class='project'>";
+                    // Project content
                     echo "<h3>$title</h3>";
+                    // Other project details
                     echo "<p>$description</p><br>";
                     echo "<p>Status: $status</p><br>";
-                    echo "<p>PDF File: <a href='data:application/pdf;base64," . base64_encode($backData) . "' target='_blank'>View</a></p>";
+                    echo "<a href='uploads/" . $row['backname'] . "' target='_blank'>View</a>";
+
                     echo "<div class='buttons'>";
                     echo "<a href='edit_project.php?title=$title' class='edit-button'>Edit</a>";
                     echo "<a href='delete_project.php?title=$title' class='delete-button'>Delete</a>";
+        
                     echo "</div>";
                     echo "<div class='project-image'><img src='data:image/jpeg;base64," . base64_encode($pictureData) . "' alt='Project Picture'></div>";
                     echo "</div>";
+                    
                 }
+                
             } else {
                 echo "<p>No projects found.</p>";
             }
@@ -356,7 +376,7 @@
             });
         });
 
-            function editProject(title) {
+    function editProject(title) {
         // Perform edit operation using the title
         // Example: Redirect to edit_project.php with the title as a parameter
         window.location.href = "edit_project.php?title=" + title;
@@ -366,6 +386,13 @@
         // Perform delete operation using the title
         // Example: Redirect to delete_project.php with the title as a parameter
         window.location.href = "delete_project.php?title=" + title;
+    }
+    function openJoinForm(title) {
+        // Display the join form container
+        document.getElementById("join-form-container").style.display = "block";
+
+        // Set the project title in the form
+        document.getElementById("project-title").value = title;
     }
 
     </script>

@@ -2,10 +2,10 @@
 // Include the database connection file
 include 'database_connection.php';
 
-// Check if the user is logged in and belongs to the CENTHRE department
+// Check if the user is logged in and belongs to the CBAA department
 session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["department"] !== "CENTHRE") {
-    header("Location: ../login.html"); // Redirect to the login page if not logged in or not from the CENTHRE department
+    header("Location: ../login.html"); // Redirect to the login page if not logged in or not from the CBAA department
     exit;
 }
 
@@ -29,11 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $picture = file_get_contents($_FILES['picture']['tmp_name']);
     $picturename = $_FILES['picture']['name'];
 
-    // File type validation (example: only allow PDF files for 'back' file)
-    $allowedBackExtensions = ['pdf'];
+    // File type validation (allow PDF, DOC, and TXT files for 'back' file)
+    $allowedBackExtensions = ['pdf', 'docx', 'txt'];
     $backFileExtension = pathinfo($backname, PATHINFO_EXTENSION);
     if (!in_array($backFileExtension, $allowedBackExtensions)) {
-        echo "Invalid file type for 'back' file. Only PDF files are allowed.";
+        echo "Invalid file type for 'back' file. Only PDF, DOC, and TXT files are allowed.";
         exit;
     }
 
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute the statement
     if (mysqli_stmt_execute($statement)) {
         // Project added successfully
-        header("Location: centhremodify.php"); // Redirect to the centhre page or any other desired page
+        header("Location: centhremodify.php"); // Redirect to the CBAA page or any other desired page
         exit;
     } else {
         // Failed to add the project
